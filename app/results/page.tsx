@@ -58,7 +58,7 @@ function ResultsContent() {
     <div className="min-h-screen">
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="text-lg font-bold tracking-tight">⬡ <span className="gradient-text">AI Learning Paths</span></Link>
+        <Link href="/" className="text-lg font-bold tracking-tight"><span className="gradient-text">Campio</span></Link>
         <div className="flex items-center gap-3">
           <Link href="/dashboard" className="text-sm text-[var(--muted)] hover:text-[var(--text)] transition-colors">Dashboard</Link>
           {!isUnlocked && (

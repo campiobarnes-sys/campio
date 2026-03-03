@@ -5,8 +5,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'AI Learning Paths — Your Personalized AI Curriculum',
-  description: 'Generate a fully personalized AI/ML learning path tailored to your background, goals, and schedule.',
+  title: 'Campio — Your Personal AI Learning Journey',
+  description: 'Campio generates a fully personalized AI/ML learning path tailored to your background, goals, and schedule.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

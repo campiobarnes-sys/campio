@@ -112,7 +112,7 @@ export default function Onboarding() {
       <div className="px-6 py-5 border-b border-[var(--border)]">
         <div className="max-w-lg mx-auto">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-semibold">⬡ AI Learning Paths</span>
+            <span className="text-sm font-semibold">Campio</span>
             <span className="text-xs text-[var(--muted)]">Step {currentStep + 1} of {STEPS.length}</span>
           </div>
           <div className="h-1.5 rounded-full bg-[var(--border)]">

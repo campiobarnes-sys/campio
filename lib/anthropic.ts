@@ -1,44 +1,34 @@
 import Anthropic from '@anthropic-ai/sdk'
 import { OnboardingAnswers, LearningPath } from '@/types'
 
-
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+function getClient() {
+  return new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+}
 
 const SKILL_LABELS: Record<string, string> = {
-  'none': 'No coding experience',
-  'some-coding': 'Some coding experience',
-  'python': 'Comfortable with Python',
-  'ml-practitioner': 'Experienced ML practitioner'
+  'none': 'No coding experience', 'some-coding': 'Some coding experience',
+  'python': 'Comfortable with Python', 'ml-practitioner': 'Experienced ML practitioner'
 }
 const GOAL_LABELS: Record<string, string> = {
-  'get-job': 'Get a job in AI/ML',
-  'build-products': 'Build AI-powered products',
-  'work-use': 'Apply AI in my current job',
-  'curiosity': 'Understand AI out of curiosity',
-  'research': 'Pursue AI research'
+  'get-job': 'Get a job in AI/ML', 'build-products': 'Build AI-powered products',
+  'work-use': 'Apply AI in my current job', 'curiosity': 'Understand AI out of curiosity', 'research': 'Pursue AI research'
 }
 const TIME_LABELS: Record<string, string> = {
-  'lt2': 'less than 2 hours per week',
-  '2-5': '2-5 hours per week',
-  '5-10': '5-10 hours per week',
-  'gt10': 'more than 10 hours per week'
+  'lt2': 'less than 2 hours per week', '2-5': '2-5 hours per week',
+  '5-10': '5-10 hours per week', 'gt10': 'more than 10 hours per week'
 }
 const STYLE_LABELS: Record<string, string> = {
-  'videos': 'watching videos',
-  'reading': 'reading documentation and articles',
-  'projects': 'hands-on projects',
-  'mixed': 'a mix of everything'
+  'videos': 'watching videos', 'reading': 'reading documentation and articles',
+  'projects': 'hands-on projects', 'mixed': 'a mix of everything'
 }
 const DOMAIN_LABELS: Record<string, string> = {
-  'general-ml': 'General Machine Learning',
-  'nlp': 'Natural Language Processing',
-  'computer-vision': 'Computer Vision',
-  'generative-ai': 'Generative AI',
-  'rl': 'Reinforcement Learning',
-  'data-science': 'Data Science'
+  'general-ml': 'General Machine Learning', 'nlp': 'Natural Language Processing',
+  'computer-vision': 'Computer Vision', 'generative-ai': 'Generative AI',
+  'rl': 'Reinforcement Learning', 'data-science': 'Data Science'
 }
 
 export async function generateLearningPath(answers: OnboardingAnswers): Promise<LearningPath> {
+  const client = getClient()
   const prompt = `You are an expert AI/ML educator. Generate a detailed, personalized learning curriculum based on this profile:
 
 - Current skill level: ${SKILL_LABELS[answers.skillLevel]}
@@ -61,35 +51,19 @@ Return ONLY valid JSON (no markdown, no explanation) with this exact structure:
       "objectives": ["string", "string", "string"],
       "estimatedHours": number,
       "resources": [
-        {
-          "title": "string",
-          "url": "string - real URL",
-          "type": "video|article|course|book|tool",
-          "free": boolean
-        }
+        { "title": "string", "url": "string - real URL", "type": "video|article|course|book|tool", "free": boolean }
       ],
       "projects": [
-        {
-          "title": "string",
-          "description": "string",
-          "skills": ["string"],
-          "estimatedHours": number,
-          "difficulty": "beginner|intermediate|advanced"
-        }
+        { "title": "string", "description": "string", "skills": ["string"], "estimatedHours": number, "difficulty": "beginner|intermediate|advanced" }
       ]
     }
   ],
   "milestones": [
-    {
-      "title": "string",
-      "description": "string",
-      "afterModuleIndex": number,
-      "badge": "emoji"
-    }
+    { "title": "string", "description": "string", "afterModuleIndex": number, "badge": "emoji" }
   ]
 }
 
-Generate 5-7 modules. Each module should have 3-5 resources and 1-2 projects. Make the resources real, high-quality URLs (Coursera, fast.ai, YouTube, arXiv, HuggingFace, etc.). Tailor everything specifically to the user's goal and domain.`
+Generate 5-7 modules. Each module should have 3-5 resources and 1-2 projects. Make the resources real, high-quality URLs. Tailor everything specifically to the user's goal and domain.`
 
   const message = await client.messages.create({
     model: 'claude-3-5-sonnet-20241022',

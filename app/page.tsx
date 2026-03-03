@@ -8,7 +8,7 @@ const EXAMPLE_PATHS = [
 
 const STEPS = [
   { n: "01", title: "Answer 5 questions", desc: "Tell us your background, goals, and how much time you have. Takes under 2 minutes." },
-  { n: "02", title: "AI generates your path", desc: "Claude crafts a personalized curriculum with curated resources and hands-on projects just for you." },
+  { n: "02", title: "Campio builds your path", desc: "Our AI crafts a personalized curriculum with curated resources and hands-on projects just for you." },
   { n: "03", title: "Learn and track progress", desc: "Work through your modules at your own pace. Check off milestones as you grow." },
 ]
 
@@ -17,7 +17,7 @@ export default function Home() {
     <div className="min-h-screen">
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass px-6 py-4 flex items-center justify-between">
-        <span className="text-lg font-bold tracking-tight">⬡ <span className="gradient-text">AI Learning Paths</span></span>
+        <span className="text-lg font-bold tracking-tight"><span className="gradient-text">Campio</span></span>
         <div className="flex items-center gap-4">
           <Link href="/pricing" className="text-sm text-[var(--muted)] hover:text-[var(--text)] transition-colors">Pricing</Link>
           <Link href="/dashboard" className="text-sm text-[var(--muted)] hover:text-[var(--text)] transition-colors">Dashboard</Link>
@@ -33,14 +33,14 @@ export default function Home() {
             ✦ Powered by Claude AI
           </div>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight mb-6">
-            Your personalized<br /><span className="gradient-text">AI learning path</span>,<br />generated in seconds.
+            Your personal<br /><span className="gradient-text">AI learning journey</span>,<br />built just for you.
           </h1>
           <p className="text-lg text-[var(--muted)] max-w-xl mx-auto mb-10">
-            Answer 5 questions about your background and goals. Get a fully structured AI/ML curriculum with curated resources, hands-on projects, and milestones — built just for you.
+            Answer 5 questions about your background and goals. Campio generates a fully structured AI/ML curriculum with curated resources, hands-on projects, and milestones — personalized to you.
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <Link href="/onboarding" className="px-8 py-4 rounded-xl bg-[var(--accent)] text-white font-bold text-lg hover:bg-[var(--accent2)] transition-all hover:-translate-y-0.5 shadow-lg shadow-[rgba(124,106,255,0.3)]">
-              Generate My Learning Path →
+              Start My Journey →
             </Link>
             <Link href="/pricing" className="px-8 py-4 rounded-xl border border-[var(--border)] text-[var(--text)] font-semibold text-lg hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all">
               See Pricing
@@ -71,8 +71,8 @@ export default function Home() {
       <section className="py-20 px-6 border-t border-[var(--border)]">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-xs font-bold uppercase tracking-widest text-[var(--accent)] mb-3">Examples</p>
-          <h2 className="text-center text-4xl font-bold tracking-tight mb-4">What paths look like</h2>
-          <p className="text-center text-[var(--muted)] mb-14 max-w-md mx-auto">Every path is unique. Here are a few examples of what people have generated.</p>
+          <h2 className="text-center text-4xl font-bold tracking-tight mb-4">What your path could look like</h2>
+          <p className="text-center text-[var(--muted)] mb-14 max-w-md mx-auto">Every Campio path is unique. Here are a few examples of what people have generated.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {EXAMPLE_PATHS.map(p => (
               <div key={p.title} className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 hover:border-[var(--accent)] transition-all hover:-translate-y-1">
@@ -82,15 +82,12 @@ export default function Home() {
                 </div>
                 <h3 className="font-bold text-lg mb-2">{p.title}</h3>
                 <div className="flex items-center gap-3 text-sm text-[var(--muted)]">
-                  <span>{p.level}</span>
-                  <span>·</span>
-                  <span>{p.modules} modules</span>
+                  <span>{p.level}</span><span>·</span><span>{p.modules} modules</span>
                 </div>
                 <div className="mt-4 space-y-1.5">
                   {['Foundations', 'Core concepts', 'Applied projects'].map(m => (
                     <div key={m} className="flex items-center gap-2 text-xs text-[var(--muted)]">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
-                      {m}
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />{m}
                     </div>
                   ))}
                   <div className="text-xs text-[var(--muted)] pl-3.5">+ {p.modules - 3} more modules...</div>
@@ -100,7 +97,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-10">
             <Link href="/onboarding" className="px-8 py-4 rounded-xl bg-[var(--accent)] text-white font-bold hover:bg-[var(--accent2)] transition-all inline-block hover:-translate-y-0.5">
-              Generate Mine →
+              Build My Path →
             </Link>
           </div>
         </div>
@@ -109,8 +106,8 @@ export default function Home() {
       {/* PRICING TEASER */}
       <section className="py-20 px-6 border-t border-[var(--border)] bg-[var(--surface)]">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-4xl font-bold tracking-tight mb-4">Start free, upgrade when ready</h2>
-          <p className="text-[var(--muted)] mb-8">Generate your basic path for free. Unlock the full curriculum, guided projects, and monthly new content with Starter or Pro.</p>
+          <h2 className="text-4xl font-bold tracking-tight mb-4">Start free, go deep when ready</h2>
+          <p className="text-[var(--muted)] mb-8">Your first path is free. Unlock the full curriculum, guided projects, and monthly new content with Starter or Pro.</p>
           <div className="flex items-center justify-center gap-6 flex-wrap text-sm">
             {['Free basic path', 'Full path from $19', 'Monthly projects at $29/mo'].map(f => (
               <div key={f} className="flex items-center gap-2 text-[var(--muted)]">
@@ -126,7 +123,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="border-t border-[var(--border)] py-8 px-6 text-center text-sm text-[var(--muted)]">
-        <p>AI Learning Paths · Built with Claude AI · <Link href="/pricing" className="hover:text-[var(--accent)] transition-colors">Pricing</Link> · <Link href="/dashboard" className="hover:text-[var(--accent)] transition-colors">Dashboard</Link></p>
+        <p>© 2026 Campio · Your personal AI learning journey · <Link href="/pricing" className="hover:text-[var(--accent)] transition-colors">Pricing</Link> · <Link href="/dashboard" className="hover:text-[var(--accent)] transition-colors">Dashboard</Link></p>
       </footer>
     </div>
   )

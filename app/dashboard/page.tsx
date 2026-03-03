@@ -13,7 +13,7 @@ export default function Dashboard() {
     return (
       <div className="min-h-screen flex flex-col">
         <nav className="px-6 py-5 border-b border-[var(--border)] flex items-center justify-between">
-          <Link href="/" className="text-lg font-bold">⬡ <span className="gradient-text">AI Learning Paths</span></Link>
+          <Link href="/" className="text-lg font-bold"><span className="gradient-text">Campio</span></Link>
           <Link href="/onboarding" className="px-4 py-2 rounded-lg bg-[var(--accent)] text-white text-sm font-semibold hover:bg-[var(--accent2)] transition-colors">Generate Path</Link>
         </nav>
         <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
@@ -31,7 +31,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen">
       <nav className="px-6 py-5 border-b border-[var(--border)] flex items-center justify-between">
-        <Link href="/" className="text-lg font-bold">⬡ <span className="gradient-text">AI Learning Paths</span></Link>
+        <Link href="/" className="text-lg font-bold"><span className="gradient-text">Campio</span></Link>
         <Link href="/onboarding" className="px-4 py-2 rounded-lg bg-[var(--accent)] text-white text-sm font-semibold hover:bg-[var(--accent2)] transition-colors">New Path</Link>
       </nav>
       <div className="max-w-4xl mx-auto px-6 py-12">
