@@ -66,7 +66,7 @@ Return ONLY valid JSON (no markdown, no explanation) with this exact structure:
 Generate 5-7 modules. Each module should have 3-5 resources and 1-2 projects. Make the resources real, high-quality URLs. Tailor everything specifically to the user's goal and domain.`
 
   const message = await client.messages.create({
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'claude-sonnet-4-5',
     max_tokens: 4000,
     messages: [{ role: 'user', content: prompt }]
   })
