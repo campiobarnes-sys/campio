@@ -72,7 +72,8 @@ Generate 5-7 modules. Each module should have 3-5 resources and 1-2 projects. Ma
   })
 
   const text = message.content[0].type === 'text' ? message.content[0].text : ''
-  const data = JSON.parse(text)
+  const cleaned = text.replace(/^```json\s*/,"").replace(/^```\s*/,"").replace(/\s*```$/,"").trim()
+  const data = JSON.parse(cleaned)
 
   return {
     id: `path_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
