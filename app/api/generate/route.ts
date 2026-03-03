@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { generateLearningPath } from '@/lib/anthropic'
 
-export const maxDuration = 60 // extend Vercel function timeout to 60s
+export const maxDuration = 60
+export const dynamic = 'force-dynamic'
 
 export async function POST(req: NextRequest) {
   try {
