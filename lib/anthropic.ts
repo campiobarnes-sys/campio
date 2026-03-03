@@ -67,12 +67,16 @@ Generate 5-7 modules. Each module should have 3-5 resources and 1-2 projects. Ma
 
   const message = await client.messages.create({
     model: 'claude-sonnet-4-5',
-    max_tokens: 4000,
+    max_tokens: 8000,
     messages: [{ role: 'user', content: prompt }]
   })
 
   const text = message.content[0].type === 'text' ? message.content[0].text : ''
-  const cleaned = text.replace(/^```json\s*/,"").replace(/^```\s*/,"").replace(/\s*```$/,"").trim()
+  // Robustly extract JSON - find first { to matching last }
+  const jsonStart = text.indexOf('{')
+  const jsonEnd = text.lastIndexOf('}')
+  if (jsonStart === -1 || jsonEnd === -1) throw new Error('No JSON found in response')
+  const cleaned = text.slice(jsonStart, jsonEnd + 1)
   const data = JSON.parse(cleaned)
 
   return {
